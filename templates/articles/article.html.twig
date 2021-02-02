@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+    <a href="{{path('articles')}}" class="float-left badge badge-secondary mb-3">Back to articles</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{path('edit-article', {'id': article.id})}}" class="float-right badge badge-secondary mb-3">Edit article</a>
+    {% endif %}
+    <div class="clearfix"></div>
+    <h1>{{article.title}}</h1>
+    {{article.content | raw}}
+{% endblock %}

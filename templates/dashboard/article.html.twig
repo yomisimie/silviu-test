@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    {{ tinymce_init() }}
+
+    <a href="{{path('dashboard')}}" class="float-left badge badge-secondary mb-3">Back to list</a>
+    <div class="clearfix"></div>
+    <h1>Edit - {{article.title}}</h1>
+    {{form_start(form)}}
+        {{form_widget(form)}}
+        <button class="btn btn-primary" type="submit">Save</button>
+    {{form_end(form)}}
+{% endblock %}
